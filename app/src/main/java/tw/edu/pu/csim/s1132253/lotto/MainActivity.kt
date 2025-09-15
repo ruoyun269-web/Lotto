@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import tw.edu.pu.csim.s1132253.lotto.ui.theme.LottoTheme
+import java.nio.file.WatchEvent
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +21,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             LottoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    play(
+
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -31,17 +32,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun play(modifier: Modifier = Modifier) {
+    var lucky = (1..100).random()
+
     Text(
-        text = "Hello $name!",
+
+        text = "樂透數字(1-100)為 $lucky",
+
         modifier = modifier
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    LottoTheme {
-        Greeting("Android")
-    }
 }
